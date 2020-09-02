@@ -10,35 +10,35 @@ The code has been tested on Mac and Windows
 A sample bluetooth session to record video for 5 seconds:
 
 [b,c] = connectToGoProBluetooth;
-GoProBluetooth(c,'VideoMode');
-GoProBluetooth(c,'Trigger');
-pause(5);
+GoProBluetooth(c,'VideoMode');<BR>
+GoProBluetooth(c,'Trigger');<BR>
+pause(5);<BR>
 GoProBluetooth(c,'Stop');
 
 A sample wifi session to record video for 5 seconds and copy the file over:
-[b,c] = turnOnWifiUsingBluetooth;
-checkConnectedToGoProWifi('HERO7'); % Replace this with the name of your camera
-GoProWifi('VideoMode');
-GoProWifi('Trigger');
-pause(5);
-GoProWifi('Stop')
-pause(2); % Need to give it time after stopping
-fn = readmedia(1);
-[dirname,name,ext] = fileparts(fn);
+[b,c] = turnOnWifiUsingBluetooth;<BR>
+checkConnectedToGoProWifi('HERO7'); % Replace this with the name of your camera<BR>
+GoProWifi('VideoMode');<BR>
+GoProWifi('Trigger');<BR>
+pause(5);<BR>
+GoProWifi('Stop')<BR>
+pause(2); % Need to give it time after stopping<BR>
+fn = readmedia(1);<BR>
+[dirname,name,ext] = fileparts(fn);<BR>
 downloadfile(dirname,[name ext])
 
 Function list:
-checkConnectedToGoProWifi - make sure the GoPro is connected via wifi
-connectToGoProBluetooth - connect to the GoPro via bluetooth
-downloadfile - download a file over wifi from the GoPro
-getDeviceInformation - get some basic information about the device
-GoProBluetooth - send a command via bluetooth
-GoProSetDateTime - set the date and time
-GoProWifi - send a command via wifi
-readmedia - read the list of media on the SD card
-turnOnWifiUsingBluetooth - turn on wifi using bluetooth
+checkConnectedToGoProWifi - make sure the GoPro is connected via wifi<BR>
+connectToGoProBluetooth - connect to the GoPro via bluetooth<BR>
+downloadfile - download a file over wifi from the GoPro<BR>
+getDeviceInformation - get some basic information about the device<BR>
+GoProBluetooth - send a command via bluetooth<BR>
+GoProSetDateTime - set the date and time<BR>
+GoProWifi - send a command via wifi<BR>
+readmedia - read the list of media on the SD card<BR>
+turnOnWifiUsingBluetooth - turn on wifi using bluetooth<BR>
 
-[![View GoProMatlab on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/79820-gopromatlab)
+This project is also on [![View GoProMatlab on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/79820-gopromatlab)
 
 
 
