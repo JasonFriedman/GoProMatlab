@@ -38,6 +38,7 @@ GoProWifi - send a command via wifi
 readmedia - read the list of media on the SD card
 turnOnWifiUsingBluetooth - turn on wifi using bluetooth
 
+[![View GoProMatlab on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/79820-gopromatlab)
 
 
 
