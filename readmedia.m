@@ -1,11 +1,23 @@
 % Read all the media off the sd card of the go pro
 % 
 % files = readmedia(latest)
-% If latest=1 (default=empty), then return only the name of hte last file
+% If latest=1 (default=empty), then return only the name of the last file
 
-function files = readmedia(latest)
+function [files,errorMessage] = readmedia(latest)
 
-data = webread('http://10.5.5.9:8080/gp/gpMediaList');
+errorMessage = '';
+
+try
+    data = webread('http://10.5.5.9:8080/gp/gpMediaList');
+catch ME
+    if nargout==2
+        errorMessage = ME;
+    elseif strcmp(ME.identifier,'MATLAB:webservices:Timeout')
+        error('Cannot connect to GoPro. Make sure you are connected to the GoPro wifi');
+    else
+        rethrow(ME)
+    end
+end
 
 count = 0;
 for m=1:numel(data.media)
