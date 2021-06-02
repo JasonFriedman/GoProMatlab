@@ -7,11 +7,13 @@
 %
 % Need to be already connected to the GoPro wifi (see checkConnectedToGoProWifi)
 
-function GoProSetDateTime(thetime)
+function errorMessage = GoProSetDateTime(thetime)
 
 if nargin<1 || isempty(thetime)
     thetime = now;
 end
+
+errorMessage = [];
 
 try
     webread(sprintf('http://10.5.5.9/gp/gpControl/command/setup/date_time?p=%%%s%%%s%%%s%%%s%%%s%%%s',...
@@ -24,7 +26,9 @@ try
 
         % day (2 digits)
 catch ME
-    if (strcmp(ME.identifier,'MATLAB:webservices:Timeout'))
+    if nargout
+        errorMessage = ME;
+    elseif strcmp(ME.identifier,'MATLAB:webservices:Timeout')
         error('Cannot connect to GoPro. Make sure you are connected to the GoPro wifi');
     else
         rethrow(ME)
